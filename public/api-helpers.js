@@ -1,9 +1,10 @@
+// gets todos from database
 export async function getTodos() {
   const response = await fetch("/api/todos");
   const body = await response.json();
   return body;
 }
-
+// creates A todoItem to send to database
 export async function createTodo(todo) {
   const response = await fetch("/api/todos", {
     method: "POST",
@@ -18,7 +19,7 @@ export async function createTodo(todo) {
   const body = await response.json();
   return body;
 }
-
+// gets todoItem from database to update it by ID
 export async function updateTodoById(idToDelete, updates) {
   const response = await fetch(`/api/todos/${idToDelete}`, {
     method: "PUT",
@@ -33,7 +34,7 @@ export async function updateTodoById(idToDelete, updates) {
   const body = await response.json();
   return body;
 }
-
+// gets todoItem from database to delete it by ID
 export async function deleteTodoById(idToDelete) {
   const response = await fetch(`/api/todos/${idToDelete}`, {
     method: "DELETE",
